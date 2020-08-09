@@ -4,7 +4,7 @@ A native Node.js module for listing the currently open application windows on Wi
 
 ## Why
 
-It's easy enough to get a list of open windows using the [EnumWindows](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-enumdesktopwindows) function. The problem is that EnumWindows returns a lot of other things that are [not what you would expect](https://stackoverflow.com/questions/7277366/why-does-enumwindows-return-more-windows-than-i-expected): tooltips, background windows, hidden windows, etc. This module uses a few heuristics to filter the list from EnumWindows to include only what you would see when you press <kbd>Alt</kbd>+<kbd>Tab</kbd>.
+It's easy enough to get a list of open windows using the [EnumWindows](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-enumdesktopwindows) function. The problem is that EnumWindows returns [a lot of other things that are not what you would expect](https://stackoverflow.com/questions/7277366/why-does-enumwindows-return-more-windows-than-i-expected): tooltips, background windows, hidden windows, etc. This module uses a few heuristics to filter the list from EnumWindows to include only what you would see when you press <kbd>Alt</kbd>+<kbd>Tab</kbd>.
 
 ## Installation
 
