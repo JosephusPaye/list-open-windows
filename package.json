@@ -3,6 +3,10 @@
     "version": "0.1.0",
     "main": "main.js",
     "types": "main.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/JosephusPaye/list-open-windows.git"
+    },
     "files": [
         "src",
         "main.js",

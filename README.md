@@ -24,7 +24,7 @@ const windows = listOpenWindows();
 windows.forEach(console.log);
 ```
 
-`listOpenWindows()` takes no parameters and returns a list of window objects with the following properties:
+`listOpenWindows()` takes no parameter and returns a list of window objects with the following properties:
 
 - `handle` (number) the window handle (HWND)
 - `zOrder` (number) the window position in z-order
