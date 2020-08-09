@@ -15,7 +15,7 @@ npm install @josephuspaye/list-open-windows --save
 ## Usage
 
 ```js
-const { listOpenWindows } = require('list-open-windows');
+const { listOpenWindows } = require('@josephuspaye/list-open-windows');
 
 // Get the list of open windows
 const windows = listOpenWindows();
@@ -24,7 +24,7 @@ const windows = listOpenWindows();
 windows.forEach(console.log);
 ```
 
-`listOpenWindows()` returns a list of window objects with the following properties:
+`listOpenWindows()` takes no parameters and returns a list of window objects with the following properties:
 
 - `handle` (number) the window handle (HWND)
 - `zOrder` (number) the window position in z-order
