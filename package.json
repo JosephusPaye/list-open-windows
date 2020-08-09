@@ -5,7 +5,9 @@
     "types": "main.d.ts",
     "files": [
         "src",
-        "main.js"
+        "main.js",
+        "main.d.ts",
+        "binding.gyp"
     ],
     "gypfile": true,
     "dependencies": {
