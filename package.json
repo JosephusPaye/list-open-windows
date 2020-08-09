@@ -1,0 +1,22 @@
+{
+    "name": "@josephuspaye/list-open-windows",
+    "version": "0.0.1",
+    "main": "main.js",
+    "types": "main.d.ts",
+    "files": [
+        "src",
+        "main.js"
+    ],
+    "gypfile": true,
+    "dependencies": {
+        "bindings": "^1.5.0",
+        "node-addon-api": "^3.0.0"
+    },
+    "devDependencies": {
+        "uvu": "^0.3.0"
+    },
+    "scripts": {
+        "build": "node-gyp configure build",
+        "test": "node test.js"
+    }
+}
