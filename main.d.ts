@@ -5,6 +5,27 @@ export interface WindowInfo {
     handle: number;
 
     /**
+     * The window bounding box minX position
+     */
+    rectLeft: number;
+
+    /**
+     * The window bounding box maxX position
+     */
+    rectRight: number;
+
+    /**
+     * The window bounding box minY position
+     */
+    rectTop: number;
+
+    /**
+     * The window bounding box maxY position
+     */
+    rectBottom: number;
+
+
+    /**
      * The window position in z-order
      */
     zOrder: number;
