@@ -138,6 +138,12 @@ static int getZorder(HWND hwnd) {
   return z;
 }
 
+static RECT getRect(HWND hwnd) {
+    RECT rect;
+    GetWindowRect(hwnd, &rect);
+    return rect;
+}
+
 /**
  * Get a list of currently open windows. The list holds structs of type of
  * window_info_t.
@@ -150,9 +156,13 @@ WindowList listWindows() {
 
   for (const HWND hwnd : hwnds) {
     window_info_t window;
-
     window.handle = hwnd;
     window.zOrder = getZorder(hwnd);
+    RECT rect = getRect(hwnd);
+    window.rectLeft = rect.left;
+    window.rectRight = rect.right;
+    window.rectTop = rect.top;
+    window.rectBottom = rect.bottom;
     GetClassName(hwnd, window.className, MAX_STRING_LENGTH);
     GetWindowText(hwnd, window.caption, MAX_STRING_LENGTH);
     GetWindowThreadProcessId(hwnd, &window.processId);

@@ -10,7 +10,7 @@
  */
 napi_value jsListWindows(napi_env env, napi_callback_info info) {
   // The array of windows, a single window object and properties
-  napi_value jsWindows, jsWindow, jsHandle, jsZOrder, jsClassName, jsCaption,
+  napi_value jsWindows, jsWindow, jsHandle, jsZOrder, jsClassName, jsCaption, jsRectLeft, jsRectBottom, jsRectRight, jsRectTop,
       jsProcessId, jsProcessPath;
   napi_status status;
 
@@ -42,6 +42,28 @@ napi_value jsListWindows(napi_env env, napi_callback_info info) {
     if (status != napi_ok) {
       napi_throw_error(env, NULL, "Failed to create int 'jsZOrder'");
     }
+
+  // const jsRectLeft = ...
+    status = napi_create_int32(env, (uint32_t)window.rectLeft, &jsRectLeft);
+    if (status != napi_ok) {
+      napi_throw_error(env, NULL, "Failed to create int 'jsRectLeft'");
+    }
+  // const jsRectRight = ...
+    status = napi_create_int32(env, (uint32_t)window.rectRight, &jsRectRight);
+    if (status != napi_ok) {
+      napi_throw_error(env, NULL, "Failed to create int 'jsRectRight'");
+    }
+  // const jsRectTop = ...
+    status = napi_create_int32(env, (uint32_t)window.rectTop, &jsRectTop);
+    if (status != napi_ok) {
+      napi_throw_error(env, NULL, "Failed to create int 'jsRectTop'");
+    }
+  // const jsRectBottom = ...
+    status = napi_create_int32(env, (uint32_t)window.rectBottom, &jsRectBottom);
+    if (status != napi_ok) {
+      napi_throw_error(env, NULL, "Failed to create int 'jsRectBottom'");
+    }
+
 
     // const jsClassName = '...'
     status = napi_create_string_utf16(env, (char16_t *)window.className,
@@ -77,13 +99,33 @@ napi_value jsListWindows(napi_env env, napi_callback_info info) {
                        "Failed to set property 'handle' on object 'jsWindow'");
     }
 
-    // jsWindow.handle = jsZOrder
+    // jsWindow.zOrder = jsZOrder
     status = napi_set_named_property(env, jsWindow, "zOrder", jsZOrder);
     if (status != napi_ok) {
       napi_throw_error(env, NULL,
                        "Failed to set property 'zOrder' on object 'jsWindow'");
     }
 
+    status = napi_set_named_property(env, jsWindow, "rectLeft", jsRectLeft);
+    if (status != napi_ok) {
+        napi_throw_error(env, NULL,
+                    "Failed to set property 'rectLeft' on object 'jsWindow'");
+      }
+    status = napi_set_named_property(env, jsWindow, "rectRight", jsRectRight);
+      if (status != napi_ok) {
+          napi_throw_error(env, NULL,
+                      "Failed to set property 'rectRight' on object 'jsWindow'");
+        }
+    status = napi_set_named_property(env, jsWindow, "rectTop", jsRectTop);
+      if (status != napi_ok) {
+          napi_throw_error(env, NULL,
+                      "Failed to set property 'rectTop' on object 'jsWindow'");
+        }
+    status = napi_set_named_property(env, jsWindow, "rectBottom", jsRectBottom);
+        if (status != napi_ok) {
+            napi_throw_error(env, NULL,
+                        "Failed to set property 'rectBottom' on object 'jsWindow'");
+          }
     // jsWindow.className = jsClassName
     status = napi_set_named_property(env, jsWindow, "className", jsClassName);
     if (status != napi_ok) {
